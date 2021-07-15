@@ -1,0 +1,2 @@
+btn.setVisibility(View.VISIBLE);
+btn.setVisibility(View.INVISIBLE);

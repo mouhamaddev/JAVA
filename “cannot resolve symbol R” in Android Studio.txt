@@ -1,0 +1,4 @@
+
+I had this this issue too. A simple 'gradlew clean' and 'gradlew build' did the trick.
+
+Click on Build->Clean Project and that will perform a gradle clean

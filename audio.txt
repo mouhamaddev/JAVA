@@ -1,0 +1,123 @@
+make a folder inside res and name it raw and put the song inside it
+
+mp = MediaPlayer.create(this, R.raw.alarm);
+mp.start();
+
+
+pause :
+
+
+if(mPlayer.isPlaying()){
+    mPlayer.pause();
+} else {
+    mPlayer.start();
+}
+
+
+OR
+
+
+final Button bPlay = (Button) findViewById(R.id.bPlay);
+MediaPlayer song1 = MediaPlayer.create(tutorialFour.this, R.raw.fluet);
+Button bStop = (Button) findViewById(R.id.bStop);
+bPlay.setWidth(10);
+
+song1.setOnCompletionListener(new OnCompletionListener() {
+
+        public void onCompletion(MediaPlayer mp) {
+
+            bPlay.setText("Play");
+
+
+        }
+    });
+
+bPlay.setOnClickListener(new View.OnClickListener() {
+
+        public void onClick(View v) {
+            // TODO Auto-generated method stub
+            b = true;
+
+            if (bPlay.getText().equals("Play") && b == true) {
+
+                song1.start();
+
+                bPlay.setText("Pause");
+                b = false;
+            } else if (bPlay.getText().equals("Pause")) {
+                x = song1.getCurrentPosition();
+                song1.pause();
+                bPlay.setText("Resume");
+                Log.v("log", "" + x);
+                b = false;
+            } else if (bPlay.getText().equals("Resume") && b == true) {
+                song1.seekTo(x);
+                song1.start();
+                bPlay.setText("Pause");
+                b = false;
+            }
+
+
+        }
+
+    });
+
+
+
+
+
+
+
+
+
+
+Sr.No	Method & description
+1	
+isPlaying()
+
+This method just returns true/false indicating the song is playing or not
+
+2	
+seekTo(position)
+
+This method takes an integer, and move song to that particular position millisecond
+
+3	
+getCurrentPosition()
+
+This method returns the current position of song in milliseconds
+
+4	
+getDuration()
+
+This method returns the total time duration of song in milliseconds
+
+5	
+reset()
+
+This method resets the media player
+
+6	
+release()
+
+This method releases any resource attached with MediaPlayer object
+
+7	
+setVolume(float leftVolume, float rightVolume)
+
+This method sets the up down volume for this player
+
+8	
+setDataSource(FileDescriptor fd)
+
+This method sets the data source of audio/video file
+
+9	
+selectTrack(int index)
+
+This method takes an integer, and select the track from the list on that particular index
+
+10	
+getTrackInfo()
+
+This method returns an array of track information

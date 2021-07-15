@@ -1,0 +1,2 @@
+go to style in value folder,
+copy the <style> tag and change APPTHEME to FULLSCREEN and DARKACTIONBAR to NOACTIONBAR

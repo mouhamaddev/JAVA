@@ -1,0 +1,67 @@
+xml :
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PdfOpener1">
+
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/pdfViewer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.github.barteksc.pdfviewer.PDFView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+-------------------------------
+
+
+
+java :
+
+
+
+package com.test.test;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+import com.github.barteksc.pdfviewer.PDFView;
+import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
+
+public class PdfOpener1 extends AppCompatActivity {
+
+    PDFView MypdfViewer;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pdf_opener1);
+
+        MypdfViewer = (PDFView) findViewById(R.id.pdfViewer);
+
+        String getItem = getIntent().getStringExtra("pdfFileName");
+
+        if(getItem.equals("pdf1")){
+            MypdfViewer.fromAsset("test.pdf").scrollHandle(new DefaultScrollHandle(this)).load();
+        }
+
+        if(getItem.equals("pdf2")){
+            MypdfViewer.fromAsset("pdf1.pdf").scrollHandle(new DefaultScrollHandle(this)).load();
+        }
+    }
+}

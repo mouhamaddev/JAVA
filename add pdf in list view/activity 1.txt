@@ -1,0 +1,103 @@
+xml : 
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".kachfiye_frqa1"
+    android:orientation="horizontal">
+
+
+    <ListView
+        android:id="@+id/myPdfList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+    </ListView>
+
+
+
+</RelativeLayout>
+
+
+
+_-------------------------------------
+
+
+
+
+
+
+
+
+package com.test.test;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
+
+import com.github.barteksc.pdfviewer.PDFView;
+import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
+
+public class kachfiye_frqa1 extends AppCompatActivity {
+
+    ListView pdfViewList;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_kachfiye_frqa1);
+
+        pdfViewList = (ListView)findViewById(R.id.myPdfList);
+
+        String[] pdfFiles = {"pdf1","pdf2"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, pdfFiles){
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+                View view = super.getView(position, convertView, parent);
+
+                TextView mytext = (TextView) view.findViewById(android.R.id.text1);
+
+                return view;
+            }
+        };
+
+        pdfViewList.setAdapter(adapter);
+        pdfViewList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
+
+                String item = pdfViewList.getItemAtPosition(i).toString();
+
+                Intent start = new Intent (getApplicationContext(), PdfOpener1.class);
+                start.putExtra("pdfFileName", item);
+                startActivity(start);
+            }
+        });
+
+
+    }
+}

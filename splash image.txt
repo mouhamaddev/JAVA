@@ -1,0 +1,11 @@
+final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(splash.this, MainActivity.class));
+                finish();
+            }
+        }, 5000);
+
+
+dont forget to make the splash screen the default activity and put the backgroung image to it

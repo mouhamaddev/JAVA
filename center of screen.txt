@@ -1,0 +1,7 @@
+You can center the ImageView itself by using:
+
+android:layout_centerVertical="true" or android:layout_centerHorizontal="true" For vertical or horizontal. Or to center inside the parent:
+
+android:layout_centerInParent="true"
+
+But it sounds like you are trying to center the actual source image inside the imageview itself, which I am not sure on.

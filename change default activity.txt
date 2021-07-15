@@ -1,0 +1,1 @@
+just go to manifests and put the intent filter in the activity

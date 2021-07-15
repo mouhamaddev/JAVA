@@ -1,0 +1,5 @@
+app:srcCompat="@drawable/main" to android:src="@drawable/main"
+
+OR
+
+move image to "mipmap-xxhdpi" folder due to size
